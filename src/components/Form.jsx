@@ -21,28 +21,12 @@ export class Form extends Component {
         // console.log(e)
         e.preventDefault();
         const {username, email, password} = e.target
-        let credits, rating = 0;
+        let name = username.value
+        let emailLogin = email.value
+        let passwordIdentification = password.value
+        let credits= 0, rating = 0;
         let bio = "";
-        
-        fetch('http://localhost:3000/users', {
-              method: "POST",
-              headers: {
-                        'content-type': 'application/json'
-              },
-              body: {
-                    username,
-                    email,
-                    password,
-                    credits,
-                    rating,
-                    bio                    
-              }
-
-            }
-
-        )
-        .then( r => r.json())
-        .then(console.log)
+        this.props.OnSubmit(name,emailLogin,passwordIdentification,credits,rating,bio)
     }
   
     render() {
@@ -55,12 +39,17 @@ export class Form extends Component {
 
                 <form onSubmit={this.handleSubmit}>
                     <br />
+                    
+                    <br />
+                    <label>Username:</label> 
                     <input type='text' name='username' value={username} onChange={this.handleChange}/>
                     <br />
                     <br />
+                    <label>email:</label>
                     <input type='text' name='email' value={email} onChange={this.handleChange}/>
                     <br />
                     <br />
+                    <label>password:</label>
                     <input type='text' name='password' value={password} onChange={this.handleChange}/>
                     <br />
                     <br />
