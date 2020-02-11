@@ -5,10 +5,12 @@ import Navbar from './components/Navbar';
 import Form from './components/Form';
 import Landing from './components/Landing'
 import Login from "./components/Login"
+import Profile from "./components/profile"
 class App extends Component {
   state = {
     user: {},
-    token:""
+    token:"",
+    addedItem: {}
   }
 
   componentDidMount() {
@@ -24,10 +26,11 @@ class App extends Component {
       .then((data) => {
         if (data.token) {
           localStorage.setItem("token", data.token)
+          localStorage.setItem("user", data.user.id)
           this.setState({
             user: data.user,
             token: data.token
-          })
+          },() => console.log(localStorage))
         }
       })
 
@@ -37,8 +40,16 @@ class App extends Component {
       this.setState({
         user:obj.user,
         token:obj.token
-      },() => this.props.history.push("/landing"))
+      },() => {
+        console.log(this.state.user)
+        localStorage.setItem("token", obj.token)
+        localStorage.setItem("user", obj.user.id)
+        this.props.history.push("/landing")
+      })
     }
+
+    
+
   handleSubmit= (name,emailLogin,passwordIdentification,credits,rating,bio) => {
     fetch('http://localhost:3000/users', {
       method: "POST",
@@ -59,6 +70,7 @@ class App extends Component {
 .then(resp => {
   if (!resp.error) {
     localStorage.setItem("token", resp.token)
+    localStorage.setItem("user", resp.user.id)
     this.setState({
       user: resp.user,
       token: resp.token
@@ -68,7 +80,7 @@ class App extends Component {
 }}
 )}
   renderForm = () => <Form OnSubmit={this.handleSubmit}/>
-  renderLanding = () => <Landing/>
+  renderLanding = () => <Landing addedItem={this.state.addedItem}/>
   pushToLanding = () => {
     this.props.history.push("/landing")
     return <Landing/>
@@ -76,14 +88,17 @@ class App extends Component {
   renderLogin = (routerProps) => {
     return <Login login={this.handleLogin}/>
   }
+
+  renderProfile = () => <Profile obj={this.state.user} />
   render(){
-    
-    console.log(this.props.history.push)
+    // console.log(this.state.user)
     return (
       <div>
         <Navbar user ={this.state.user}/>
         <Switch>
           <Route path="/signup" component={this.renderForm} />
+          
+          <Route path="/profile" component={this.renderProfile} />
           <Route path="/login" component={this.renderLogin} />
           <Route path="/landing" exact  component={this.renderLanding} />
           <Route path='/' exact component={this.pushToLanding}/>

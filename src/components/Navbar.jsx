@@ -1,11 +1,11 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component} from 'react'
 import { NavLink } from 'react-router-dom'
 
 export class Navbar extends Component {
 
     handleEntrance = () => {
         if(this.props.user.username){
-            return`Welcome ${this.props.user.username}!`
+            return <NavLink to='/profile'>    {`Welcome ${this.props.user.username}!`}</NavLink> 
         }
         else{
             return(

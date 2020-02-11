@@ -17,7 +17,7 @@ class Login extends Component {
     handleSubmit = (evt) => {
         evt.preventDefault()
         const {username,password} = this.state
-        console.log(username,password)
+        
         fetch("http://localhost:3000/users/login",{
             method:"POST",
             headers:{
@@ -35,7 +35,7 @@ class Login extends Component {
         })
     }
     render() {
-        console.log(this.state)
+       
         let {username,password} = this.state
         return (
             <form onSubmit={this.handleSubmit}>
