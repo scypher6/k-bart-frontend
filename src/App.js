@@ -79,6 +79,11 @@ class App extends Component {
     })
 }}
 )}
+  logout = () => {
+    this.setState({
+      user:{}
+    })
+  }
   renderForm = () => <Form OnSubmit={this.handleSubmit}/>
   renderLanding = () => <Landing addedItem={this.state.addedItem}/>
   pushToLanding = () => {
@@ -94,7 +99,7 @@ class App extends Component {
     // console.log(this.state.user)
     return (
       <div>
-        <Navbar user ={this.state.user}/>
+        <Navbar user ={this.state.user} logout={this.logout}/>
         <Switch>
           <Route path="/signup" component={this.renderForm} />
           

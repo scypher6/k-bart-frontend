@@ -2,10 +2,19 @@ import React, { Component} from 'react'
 import { NavLink } from 'react-router-dom'
 
 export class Navbar extends Component {
+    handleClick = () => {
+    localStorage.clear()
+    this.props.logout()
+    }
 
     handleEntrance = () => {
         if(this.props.user.username){
-            return <NavLink to='/profile'>    {`Welcome ${this.props.user.username}!`}</NavLink> 
+            return (
+                <div>
+            <NavLink to='/profile'> {`Welcome ${this.props.user.username}!`}</NavLink> 
+            <NavLink to='/landing' onClick={this.handleClick}>Logout</NavLink>
+            </div>
+            )
         }
         else{
             return(

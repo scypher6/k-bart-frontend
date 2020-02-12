@@ -15,7 +15,7 @@ itemMapper = () => this.filterer().map(item => {
     return(
         <div>
         <Item key={item.id} obj={item}/>
-        <Button />
+        <Button item ={item}/>
         </div>
     )
 
