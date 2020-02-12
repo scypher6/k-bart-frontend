@@ -9,7 +9,7 @@ export class Navbar extends Component {
         }
         else{
             return(
-            <div>
+            <div>  
             <NavLink to='/login'>Login</NavLink> ||  
             <NavLink to='/signup'>SignUp</NavLink> 
             </div>
@@ -20,7 +20,7 @@ export class Navbar extends Component {
     render() {
         return (
             <div>
-                <NavLink to='/'>Home</NavLink> 
+                <NavLink to='/'><img src ="" alt = 'logo' /> <h1>K-Bart</h1> </NavLink> 
                 {this.handleEntrance()}
             </div>
         )

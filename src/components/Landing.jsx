@@ -22,9 +22,7 @@ itemMapper = () => this.filterer().map(item =>  <Item key={item.id} obj={item}/>
             })
         })
     }
-    componentDidUpdate(prevProps, prevState) {
-        
-    }
+
     
 
 
@@ -44,8 +42,8 @@ itemMapper = () => this.filterer().map(item =>  <Item key={item.id} obj={item}/>
     
         let {searchTerm} = this.state
         return (
-            <Container textAlign='center'>
-           
+            <Container textAlign='left'>
+                Search:
                 <input type="text" name="search" value={searchTerm} onChange={this.handleChange}/>
             
             <ol>
