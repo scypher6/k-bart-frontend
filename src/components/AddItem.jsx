@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {Container , Form, Grid} from 'semantic-ui-react'
 class AddItem extends Component {
 
     state = {
@@ -39,23 +39,29 @@ class AddItem extends Component {
         
 
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    Item name: 
-                    <input type="text" name="name" />
-                    <br />
-                    Description
-                    <input type="text" name="description" />
-                    <br />
-                    Price: 
-                    <input type="text" name="price" />
-                    <br />
-                    <input type="submit" name="submit" />
-                </form>
-                <br />
-            </div>
+            <Container>
+            <Grid>
+                <Grid.Row centered>
+                    <Grid.Column width={6}>
+                        <Form onSubmit={this.handleSubmit}>
+                            <Form.Field>
+                                <Form.Input label="name" placeholder="name" />
+                            </Form.Field>
+                            <Form.Field>
+                                <Form.Input label="description" placeholder="description" />
+                            </Form.Field>
+                            <Form.Field>
+                                <Form.Input label="Price" placeholder="Price" />
+                            </Form.Field>
+                        </Form>
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
+        </Container> 
         );
     }
 }
 
 export default AddItem;
+{/**/}
+

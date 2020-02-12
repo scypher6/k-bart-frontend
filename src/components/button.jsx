@@ -14,13 +14,13 @@ class button extends Component {
         })
         .then(r => r.json())
         .then(res => {
-            console.log(res)
+            this.props.buy(res)
         })
     }
     render() {
         return (
-            <div>
-                <button onClick={this.handleClick}>Buy</button>
+            <div onClick={this.handleClick}>
+                <button >Buy</button>
             </div>
         );
     }
