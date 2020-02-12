@@ -11,9 +11,15 @@ export class Navbar extends Component {
 
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
+    handleClick = () => {
+                localStorage.clear()
+                this.props.logout()
+        }
+
     handleEntrance = () => {
         if(this.props.user.username){
             return <NavLink to='/profile'>    {`Welcome ${this.props.user.username}!`}</NavLink> 
+            <NavLink to='/landing' onClick={this.handleClick}>Logout</NavLink>
         }
         else{
             return(
@@ -49,13 +55,14 @@ export class Navbar extends Component {
             <div className='menuDiv nav'>
             <NavLink to='/'><img src ="K-bart_Logo.png" width='10%' height='10%' alt = 'logo' /></NavLink>
             <Menu pointing inverted>
-            
+            <NavLink to='/signup'>
             <Menu.Item
                     name='K-Bart'
                     active={activeItem === 'K-Bart'}
                     onClick={this.handleItemClick}
-                    to='/'
+                   
             />
+</NavLink> 
             <Menu.Item
                     name='Login'
                     active={activeItem === 'Login'}

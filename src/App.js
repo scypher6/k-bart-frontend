@@ -98,11 +98,19 @@ class App extends Component {
       })
   }
 
+
+  logout = () => {
+    this.setState({
+      user:{}
+    })
+  }
+
+  
   render(){
     // console.log(this.state.user)
     return (
       <div>
-        <Navbar user ={this.state.user} handleSearch={this.handleSearch}/>
+        <Navbar user ={this.state.user} handleSearch={this.handleSearch} logout={this.logout}/>
         <Switch>
           <Route path="/signup" component={this.renderForm} />
           
