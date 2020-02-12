@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Item from "./item"
 import { Container, Divider } from 'semantic-ui-react';
-
+import Button from "./button"
 class Landing extends Component {
     state = {
         items:[],
@@ -11,7 +11,15 @@ class Landing extends Component {
 filterer = () => this.state.items.filter(item => item.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
 
 
-itemMapper = () => this.filterer().map(item =>  <Item key={item.id} obj={item}/>)
+itemMapper = () => this.filterer().map(item => { 
+    return(
+        <div>
+        <Item key={item.id} obj={item}/>
+        <Button />
+        </div>
+    )
+
+})
 
     componentDidMount() {
         fetch("http://localhost:3000/items")
