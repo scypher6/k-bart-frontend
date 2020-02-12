@@ -10,7 +10,8 @@ class App extends Component {
   state = {
     user: {},
     token:"",
-    addedItem: {}
+    addedItem: {},
+    searchTerm: ""
   }
 
   componentDidMount() {
@@ -85,7 +86,7 @@ class App extends Component {
     })
   }
   renderForm = () => <Form OnSubmit={this.handleSubmit}/>
-  renderLanding = () => <Landing addedItem={this.state.addedItem}/>
+  renderLanding = () => <Landing addedItem={this.state.addedItem} searchTerm = {this.state.searchTerm}/>
   pushToLanding = () => {
     this.props.history.push("/landing")
     return <Landing/>
@@ -95,11 +96,26 @@ class App extends Component {
   }
 
   renderProfile = () => <Profile obj={this.state.user} />
+
+  handleSearch = (wordsFromNav) =>{
+      this.setState({
+          searchTerm: wordsFromNav
+      })
+  }
+
+
+  logout = () => {
+    this.setState({
+      user:{}
+    })
+  }
+
+  
   render(){
     // console.log(this.state.user)
     return (
       <div>
-        <Navbar user ={this.state.user} logout={this.logout}/>
+        <Navbar user ={this.state.user} handleSearch={this.handleSearch} logout={this.logout}/>
         <Switch>
           <Route path="/signup" component={this.renderForm} />
           
