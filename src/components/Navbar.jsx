@@ -9,7 +9,12 @@ export class Navbar extends Component {
              searchTerm: ""
             }
 
-    handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+    handleItemClick = (e, { name }) => {
+        // console.log(name)
+        // console.log(this.props)
+        let route = `/${name.toLowerCase()}`
+         this.setState({ activeItem: name }, () => this.props.history.push(route))
+    }
 
     handleClick = () => {
                 localStorage.clear()
@@ -19,7 +24,7 @@ export class Navbar extends Component {
     handleEntrance = () => {
         if(this.props.user.username){
             return <NavLink to='/profile'>    {`Welcome ${this.props.user.username}!`}</NavLink> 
-            <NavLink to='/landing' onClick={this.handleClick}>Logout</NavLink>
+            // <NavLink to='/landing' onClick={this.handleClick}>Logout</NavLink>
         }
         else{
             return(
@@ -55,20 +60,20 @@ export class Navbar extends Component {
             <div className='menuDiv nav'>
             <NavLink to='/'><img src ="K-bart_Logo.png" width='10%' height='10%' alt = 'logo' /></NavLink>
             <Menu pointing inverted>
-            <NavLink to='/signup'>
+
             <Menu.Item
-                    name='K-Bart'
-                    active={activeItem === 'K-Bart'}
+                    name='landing'
+                    active={activeItem === '/landing'}
                     onClick={this.handleItemClick}
                    
             />
-</NavLink> 
+
             <Menu.Item
                     name='Login'
                     active={activeItem === 'Login'}
                     onClick={this.handleItemClick}
                     to='/login'
-            />
+    />
             <Menu.Item
                     name='Signup'
                     active={activeItem === 'Signup'}

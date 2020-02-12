@@ -110,7 +110,10 @@ class App extends Component {
     // console.log(this.state.user)
     return (
       <div>
-        <Navbar user ={this.state.user} handleSearch={this.handleSearch} logout={this.logout}/>
+        <Switch>
+          <Route path="/" render={(routerProps) => <Navbar user ={this.state.user} {...routerProps} handleSearch={this.handleSearch} logout={this.logout}/>} />
+        </Switch>
+        {/* <Navbar user ={this.state.user} handleSearch={this.handleSearch} logout={this.logout}/> */}
         <Switch>
           <Route path="/signup" component={this.renderForm} />
           
