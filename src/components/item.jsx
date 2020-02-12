@@ -8,8 +8,8 @@ class item extends Component {
             <li>
                 <h1>{name}</h1>
                <ul>
-                <li>{price}</li>
-                <li>{description}</li>
+                    <li type="disc">${price}</li>
+                    <li type="square">{description}</li>
                 </ul>
             </li>
         );

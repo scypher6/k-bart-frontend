@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.menuDiv {
+    background-color: black;
+}
+
+.nav {
+    /* z-index: 1;
+    position: fixed; */
+} 

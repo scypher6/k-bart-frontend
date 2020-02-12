@@ -5,11 +5,10 @@ import { Container, Divider } from 'semantic-ui-react';
 class Landing extends Component {
     state = {
         items:[],
-        searchTerm:""
+        // searchTerm:""
     }
 
-filterer = () => this.state.items.filter(item => item.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
-
+filterer = () => this.state.items.filter(item => item.name.toLowerCase().includes(this.props.searchTerm.toLowerCase()))
 
 itemMapper = () => this.filterer().map(item =>  <Item key={item.id} obj={item}/>)
 
@@ -26,15 +25,15 @@ itemMapper = () => this.filterer().map(item =>  <Item key={item.id} obj={item}/>
     
 
 
-    handleChange = (e) => {
+    // handleChange = (e) => {
         
-        let {value} = e.target
-        this.setState({
-            searchTerm: value
-        }
+    //     let {value} = e.target
+    //     this.setState({
+    //         searchTerm: value
+    //     }
 
-        )
-    }
+    //     )
+    // }
 
 
 
@@ -43,12 +42,12 @@ itemMapper = () => this.filterer().map(item =>  <Item key={item.id} obj={item}/>
         let {searchTerm} = this.state
         return (
             <Container textAlign='left'>
-                Search:
-                <input type="text" name="search" value={searchTerm} onChange={this.handleChange}/>
+                {/* Search:
+                <input type="text" name="search" value={searchTerm}/> */}
             
-            <ol>
+            <ul>
                 {this.itemMapper()}
-            </ol>
+            </ul>
             
             </Container>
         );
