@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Item from "./item";
-import Button from './button'
+import Button from './Button'
 import { Container, Divider } from 'semantic-ui-react';
 
 class Landing extends Component {
