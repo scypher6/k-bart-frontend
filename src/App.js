@@ -80,6 +80,11 @@ class App extends Component {
     })
 }}
 )}
+  logout = () => {
+    this.setState({
+      user:{}
+    })
+  }
   renderForm = () => <Form OnSubmit={this.handleSubmit}/>
   renderLanding = () => <Landing addedItem={this.state.addedItem} searchTerm = {this.state.searchTerm}/>
   pushToLanding = () => {
@@ -95,7 +100,7 @@ class App extends Component {
   handleSearch = (wordsFromNav) =>{
       this.setState({
           searchTerm: wordsFromNav
-      })
+      },() => { console.log(this.state.searchTerm)})
   }
 
 

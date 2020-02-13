@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Item from './item';
-
+import {Container} from "semantic-ui-react"
 class transaction extends Component {
 
     state = {
@@ -19,13 +19,14 @@ class transaction extends Component {
         })
     }
 
-    personalItems = () => this.state.items.map(item => <Item obj= {item}  />)
+    personalItems = () => this.state.items.map(item => <Container textAlign='left'> <Item key={item.id} obj= {item}  /></Container>)
     
     render() {
         return (
-            <div>
+                <ul>
                 {this.personalItems()}
-            </div>
+                </ul>
+            
         );
     }
 }
