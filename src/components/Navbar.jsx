@@ -31,9 +31,8 @@ export class Navbar extends Component {
             let {value} = e.target
             this.setState({
                 searchTerm: value
-            }
-            )
-            this.props.handleSearch(this.state.searchTerm)
+            },() => this.props.handleSearch(value) )
+            
         }
 
         handleLinkRendering = (activeItem) => {

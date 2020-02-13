@@ -31,7 +31,7 @@ class Landing extends Component {
     }
 
     render() {
-        console.log(this.props.searchTerm)
+       
         let updatedArray = [...this.state.items]
 let filterer = () => updatedArray.filter(item => item.name.toLowerCase().includes(this.props.searchTerm.toLowerCase()))
 let itemMapper = () => filterer().map(item =>  {

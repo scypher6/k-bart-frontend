@@ -100,7 +100,7 @@ class App extends Component {
   handleSearch = (wordsFromNav) =>{
       this.setState({
           searchTerm: wordsFromNav
-      })
+      },() => { console.log(this.state.searchTerm)})
   }
 
 
