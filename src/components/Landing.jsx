@@ -38,7 +38,9 @@ let itemMapper = () => filterer().map(item =>  {
         return (
         <div>
             <Item key={item.id} obj={item} />
+            <br/>
             <Button item ={item} buy={this.handleBuy}/>    
+            <br/>
         </div>  
         )     
      })

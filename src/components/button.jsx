@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'semantic-ui-react';
 class button extends Component {
     handleClick = () => {
+        
         fetch("http://localhost:3000/items/buy",{
             method:"POST",
             headers:{
@@ -14,6 +15,7 @@ class button extends Component {
         })
         .then(r => r.json())
         .then(res => {
+            console.log(res)
             this.props.buy(res)
         })
     }
