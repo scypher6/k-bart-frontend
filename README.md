@@ -1,6 +1,12 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# K-Bart
+K-Bart is an app that allows to barter items.
 
-## Available Scripts
+## Technologies
+- JavaScript
+- ReactJS
+- Ruby-on-Rails
+- Semantic-UI
+- BootStrap
 
 In the project directory, you can run:
 
