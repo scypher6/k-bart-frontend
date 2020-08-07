@@ -1,5 +1,5 @@
 # K-Bart
-An app for to bartering and trading items.
+An app for bartering and trading items.
 
 ## Technologies
 - JavaScript
